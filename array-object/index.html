@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Object</title>
+</head>
+
+<body>
+    <h1> Array Object </h1>
+
+    <script>
+        console.log("belajar array & object")
+
+        const buah = ['apple', 'mangga', 400, true, ['jeruk']]
+
+        console.log("array buah", buah)
+
+        console.log('buahaha', buah[2])
+
+        const mobil = {
+            roda: 4,
+            merek: 'Toyota',
+            status: 'Lunas',
+            warna: 'hitam',
+            apakah_rusak: false,
+            kondisi_roda: {
+                kiri_depan: 'bagus',
+                kanan_depan: 'bagus',
+                kiri_belakang: 'kempes',
+                kanan_belakang: 'bagus'
+            }
+        }
+
+        console.log('mobil', mobil)
+        console.log('warna mobil', mobil.warna)
+
+        // nested 4 level: manusia > tubuh > kepala > mata
+        const manusia = {
+            nama: 'Budi',
+            umur: 20,
+            tubuh: {                          // level 2
+                tinggi: 170,
+                kepala: {                     // level 3
+                    bentuk: 'oval',
+                    mata: {                   // level 4
+                        kiri: 'minus',
+                        kanan: 'normal',
+                        warna: 'coklat'
+                    }
+                }
+            }
+        }
+
+        console.log('manusia', manusia)
+
+        console.log('bentuk kepala', manusia.tubuh.kepala.bentuk)
+        console.log('kondisi mata', manusia.tubuh.kepala.mata.kiri)
+
+        // nested 4 level, dan di level terdalam ada ARRAY
+        const lokasi = {                          // level 1
+            nama: 'Rute Perjalanan',
+            wilayah: {                            // level 2
+                kota: 'Jakarta',
+                pusat: {                          // level 3
+                    kecamatan: 'Gambir',
+                    jalur: [                      // level 4 -> ARRAY
+                        { lat: -6.2088, lng: 106.8456, nama: 'Start' },
+                        { lat: -6.1900, lng: 106.8400, nama: 'Checkpoint' },
+                        { lat: -6.1751, lng: 106.8272, nama: 'Finish' }
+                    ]
+                }
+            }
+        }
+
+        console.log('lokasi a', lokasi.wilayah.pusat.jalur[2].lng)
+    </script>
+</body>
+
+</html>

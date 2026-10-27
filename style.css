@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    color: red;
+}
+
+.box{                    /*ini namanya selector*/
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    margin-top: 10px;
+}
+
+.box-1{
+    background-color: black; /*ini namanya properti*/
+}
+
+.box-2{
+    width: 400px;
+    height: 400px;
+}
+
+.box-3{
+    width: 150px;
+    height: 150px;
+}
+
+.section-box{
+    display: flex;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.section-hero{
+    display: flex;
+    gap: 10px;
+    border: 10px solid black;
+}
+.section-hero .box{
+    background-color: aquamarine;
+}
+
+/* ===== BELAJAR BOX MODEL ===== */
+
+.section-boxmodel{
+    margin-top: 30px;
+    padding: 10px;
+    border: 2px dashed gray;
+}
+
+/* dasar semua kotak demo:
+   - width/height  = ukuran CONTENT (isi di dalam)
+   - margin        = jarak keluar, dorong elemen lain menjauh (tidak kena background)
+   - padding       = jarak dalam, antara content dan border (kena background)
+   - border        = garis tepi kotak
+   - background    = meliputi content + padding + border
+*/
+.bm-box{
+    width: 150px;
+    height: 60px;
+    background-color: lightgreen;
+    margin-bottom: 10px;   /* jarak antar kotak */
+    box-sizing: content-box; /* biar mudah dilihat: width itu HANYA content */
+}
+
+/* 1. content doang - tidak ada padding/border */
+.bm-1{
+    padding: 0;
+    border: 0;
+}
+
+/* 2. content + padding: kotak jadi lebih besar,
+   background ikut melebar mengisi padding */
+.bm-2{
+    padding: 20px;
+    border: 0;
+}
+
+/* 3. content + padding + border:
+   border digambar di luar padding, warnanya beda biar kelihatan */
+.bm-3{
+    padding: 20px;
+    border: 5px solid black;
+}
+
+/* 4. pakai semuanya:
+   margin mendorong kotak ini menjauh dari elemen lain,
+   area margin tetap kosong / transparan (tidak ada background) */
+.bm-4{
+    padding: 20px;
+    border: 5px solid black;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+/* ===== BOX SIZING =====
+   box-sizing menentukan: width/height itu ukuran APA?
+
+   - content-box (default): width/height = ukuran CONTENT saja.
+     padding & border ditambahkan DI LUAR-nya, jadi kotak membesar.
+     width:200 + padding:20*2 + border:5*2  ->  total 250px
+
+   - border-box: width/height = ukuran TOTAL (content+padding+border).
+     padding & border dimakan dari dalam, content-nya yang menyusut.
+     width:200 tetap 200px, content jadi 200-40-10 = 150px
+
+   Praktik nyata: hampir semua project pakai border-box supaya
+   lebar elemen tidak melar diam-diam dan layout gampang dihitung.
+   Trik umum: * { box-sizing: border-box; } di paling atas CSS.
+*/
+
+.bs-row{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* deklarasi dasar yang SAMA untuk kedua kotak */
+.bs-box{
+    width: 200px;
+    height: 120px;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: lightblue;
+    box-sizing: content-box; /* sengaja, biar jelas lihat bedanya */
+}
+
+/* tetap pakai rumus content-box -> total melar jadi 250px */
+.bs-content{
+    background-color: lightsalmon;
+}
+
+/* di sini width 200px jadi ukuran TOTAL, bukan content */
+.bs-border{
+    box-sizing: border-box;
+    background-color: lightgreen;
+}
+
+.bs-box small{
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+}
+
+.bs-note{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-left: 4px solid gray;
+}

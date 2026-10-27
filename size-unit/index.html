@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Size Unit CSS</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header class="head">
+        <h1>Size Unit CSS</h1>
+        <p>Satuan ukuran di CSS dibagi 2: <b>absolute</b> (tetap, tidak peduli apa pun) dan <b>relative</b> (ikut patokan di sekitarnya).</p>
+    </header>
+
+    <!-- ============ 1. PX ============ -->
+    <section class="demo">
+        <h2>1. px <small>(absolute)</small></h2>
+        <p>Satuannya tetap. <code>100px</code> ya 100 pixel, tidak terpengaruh font-size atau ukuran layar.</p>
+        <div class="px-box">100px × 100px</div>
+    </section>
+
+    <!-- ============ 2. REM ============ -->
+    <section class="demo">
+        <h2>2. rem <small>(relative ke &lt;html&gt;)</small></h2>
+        <p><code>1rem</code> = font-size root (html). Default browser <code>16px</code>, jadi <code>2rem = 32px</code>. Ubah font-size html, semua rem ikut berubah.</p>
+        <div class="rem-parent">
+            <div class="rem-box">2rem × 2rem (font-size normal)</div>
+        </div>
+        <div class="rem-parent is-big">
+            <div class="rem-box">2rem × 2rem (parent font-size 24px)</div>
+        </div>
+        <p class="note">Kotak hijau tetap ukurannya walau font-size parent diubah → karena <b>rem</b> cuma peduli root, bukan parent.</p>
+    </section>
+
+    <!-- ============ 3. EM ============ -->
+    <section class="demo">
+        <h2>3. em <small>(relative ke parent / elemen sendiri)</small></h2>
+        <p><code>em</code> itu <b>bertingkat</b> — ikut font-size elemen itu sendiri (atau parent-nya kalau dipakai di font-size). Ini yang sering bikin bingung.</p>
+        <div class="em-parent">
+            <div class="em-box">2em × 2em (parent 16px) → 32px</div>
+        </div>
+        <div class="em-parent is-big">
+            <div class="em-box">2em × 2em (parent 24px) → 48px</div>
+        </div>
+        <p class="note">Bandingkan dengan rem di atas: <b>em ikut membesar</b> karena patokannya parent.</p>
+    </section>
+
+    <!-- ============ 4. % ============ -->
+    <section class="demo">
+        <h2>4. % <small>(relative ke parent)</small></h2>
+        <p><code>width: 50%</code> = setengah lebar parent. Perhatikan: <code>padding: 10%</code> dihitung dari <b>lebar</b> parent, bukan tinggi — walau padding-nya vertikal.</p>
+        <div class="percent-parent">
+            <div class="percent-box">width: 50%</div>
+        </div>
+    </section>
+
+    <!-- ============ 5. VIEWPORT ============ -->
+    <section class="demo">
+        <h2>5. vw / vh / vmin / vmax <small>(relative ke layar)</small></h2>
+        <p>Patokannya ukuran viewport (jendela browser). <code>1vw</code> = 1% lebar layar, <code>1vh</code> = 1% tinggi layar. Coba resize jendela.</p>
+        <div class="vw-box">10vw × 10vh</div>
+    </section>
+
+    <!-- ============ 6. RANGKUMAN ============ -->
+    <section class="demo">
+        <h2>6. Rangkuman</h2>
+        <table class="tabel">
+            <thead>
+                <tr>
+                    <th>Unit</th>
+                    <th>Patokan</th>
+                    <th>Kapan dipakai</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>px</td><td>pixel, tetap</td><td>border, ukuran presisi yang tidak boleh berubah</td></tr>
+                <tr><td>rem</td><td>font-size &lt;html&gt;</td><td>font-size, spacing, ukuran global — paling disarankan</td></tr>
+                <tr><td>em</td><td>font-size parent/elemen</td><td>padding tombol yang mau ikut ukuran teksnya</td></tr>
+                <tr><td>%</td><td>ukuran parent</td><td>lebar kolom, layout fleksibel</td></tr>
+                <tr><td>vw / vh</td><td>viewport (layar)</td><td>section full-screen, hero banner</td></tr>
+                <tr><td>vmin / vmax</td><td>sisi terkecil/terbesar layar</td><td>elemen yang aman di layar portrait & landscape</td></tr>
+            </tbody>
+        </table>
+        <p class="note">Tips: <code>font-size</code> pakai <b>rem</b> (aksesibilitas — ikut setting zoom user), spacing pakai <b>rem</b>, border pakai <b>px</b>, tinggi full-screen pakai <b>vh</b> atau <code>100dvh</code> (mobile-friendly).</p>
+    </section>
+
+</body>
+</html>

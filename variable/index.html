@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Variabel JavaScript</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 75ch;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background-color: #f7f7f7;
+            color: #222;
+        }
+
+        h1{
+            border-bottom: 3px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        section{
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h2{
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #1565c0;
+        }
+
+        code{
+            background-color: #e8e8e8;
+            padding: 0.1rem 0.35rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre{
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin: 0.75rem 0;
+        }
+
+        /* tempat hasil console.log tampil di halaman,
+           supaya tidak perlu buka DevTools */
+        .output{
+            background-color: #f0f7ff;
+            border-left: 4px solid #1565c0;
+            padding: 0.5rem 0.75rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+
+        .output:empty{
+            display: none;
+        }
+
+        /* ===== WARNA SYNTAX =====
+           Palet ini meniru VS Code Dark+ supaya familiar.
+           Setiap token dari highlight.js punya satu class warna. */
+        .c-komentar{ color: #6a9955; font-style: italic; }  /* komentar  - hijau  */
+        .c-string  { color: #ce9178; }                       /* "teks"    - oranye */
+        .c-kunci   { color: #569cd6; }                       /* let const - biru   */
+        .c-literal { color: #c586c0; }                       /* true null - ungu   */
+        .c-angka   { color: #b5cea8; }                       /* 42 3.14   - hijau  */
+        .c-simbol  { color: #d4d4d4; }                       /* = ; { }   - abu    */
+    </style>
+</head>
+<body>
+
+    <h1>Belajar Variabel JavaScript</h1>
+    <p>Buka DevTools (F12) → tab <b>Console</b> untuk lihat hasil lengkapnya. Hasil juga ditampilkan di bawah tiap bagian.</p>
+
+    <section>
+        <h2>1. Deklarasi: let, const, var</h2>
+        <pre>let umur = 20;      // bisa diubah nilainya
+const nama = "Budi"; // TIDAK bisa diubah
+var kota = "Jakarta"; // cara lama, hindari</pre>
+        <div class="output" id="out-1"></div>
+    </section>
+
+    <section>
+        <h2>2. Ubah nilai (reassign)</h2>
+        <pre>let skor = 10;
+skor = 25;        // OK, let boleh diubah
+skor = skor + 5;  // 30</pre>
+        <div class="output" id="out-2"></div>
+    </section>
+
+    <section>
+        <h2>3. const tidak bisa diubah</h2>
+        <pre>const PI = 3.14;
+PI = 5;  // ERROR: Assignment to constant variable</pre>
+        <div class="output" id="out-3"></div>
+    </section>
+
+    <section>
+        <h2>4. Tipe data dasar</h2>
+        <pre>let teks   = "halo";     // string
+let angka  = 42;         // number
+let desimal= 3.14;       // number juga
+let benar  = true;       // boolean
+let kosong = null;       // null (sengaja kosong)
+let belum;               // undefined</pre>
+        <div class="output" id="out-4"></div>
+    </section>
+
+    <section>
+        <h2>5. typeof — cek tipe data</h2>
+        <pre>typeof "halo"   // "string"
+typeof 42       // "number"</pre>
+        <div class="output" id="out-5"></div>
+    </section>
+
+    <section>
+        <h2>6. Template literal (gabung teks + variabel)</h2>
+        <pre>let nama = "Budi";
+let umur = 20;
+console.log(`Halo ${nama}, umur kamu ${umur} tahun`);</pre>
+        <p>Pakai backtick <code>`</code> (bukan kutip biasa) dan <code>${ }</code> untuk sisipkan variabel.</p>
+        <div class="output" id="out-6"></div>
+    </section>
+
+    <section>
+        <h2>7. Scope (jangkauan variabel)</h2>
+        <pre>let luar = "bisa diakses di mana saja";
+
+if (true) {
+    let dalam = "cuma hidup di dalam blok ini";
+    console.log(luar);  // OK
+    console.log(dalam); // OK
+}
+
+console.log(luar);   // OK
+console.log(dalam);  // ERROR: not defined</pre>
+        <div class="output" id="out-7"></div>
+    </section>
+
+    <section>
+        <h2>8. Aturan penamaan</h2>
+        <pre>let namaLengkap = "Budi";  // camelCase (disarankan)
+let _private    = 1;        // boleh diawali _
+let $harga      = 100;      // boleh diawali $
+
+// TIDAK boleh:
+// let 2umur = 20;   (tidak boleh diawali angka)
+// let nama lengkap = ""; (tidak boleh ada spasi)
+// let class = "x";  (kata kunci bahasa)</pre>
+        <div class="output" id="out-8"></div>
+    </section>
+
+    <section>
+        <h2>9. Array — daftar nilai berurutan</h2>
+        <pre>// bikin array pakai kurung siku [ ]
+const buah = ["apel", "jeruk", "mangga"];
+
+// index dimulai dari 0, bukan 1
+buah[0]   // "apel"
+buah[2]   // "mangga"
+buah.length // 3
+
+// tambah / hapus di AKHIR
+buah.push("pisang");  // tambah di belakang
+buah.pop();           // buang yang paling belakang
+
+// tambah / hapus di DEPAN
+buah.unshift("anggur"); // tambah di depan
+buah.shift();           // buang yang paling depan
+
+// cari
+buah.includes("jeruk"); // true / false
+buah.indexOf("jeruk");  // posisinya, -1 kalau tidak ada
+
+// ubah jadi teks
+buah.join(", ");        // "apel, jeruk, mangga"</pre>
+        <div class="output" id="out-9"></div>
+    </section>
+
+    <section>
+        <h2>10. Object — data berpasangan nama: nilai</h2>
+        <pre>// bikin object pakai kurung kurawal { }
+const user = {
+    nama: "Budi",      // key: value
+    umur: 20,
+    kota: "Jakarta"
+};
+
+// akses nilai
+user.nama        // "Budi"  (dot, cara utama)
+user["umur"]     // 20      (bracket, untuk key dinamis)
+
+// ubah / tambah properti
+user.umur = 21;
+user.email = "budi@mail.com";
+
+// hapus properti
+delete user.kota;</pre>
+        <div class="output" id="out-10"></div>
+    </section>
+
+    <section>
+        <h2>11. Array of Object — kombinasi keduanya</h2>
+        <pre>const pengguna = [
+    { nama: "Budi", umur: 20 },
+    { nama: "Ani",  umur: 22 },
+    { nama: "Cici", umur: 19 }
+];
+
+// akses: index dulu, baru key
+pengguna[0].nama   // "Budi"
+
+// ambil semua nama jadi array baru
+pengguna.map(p => p.nama)   // ["Budi", "Ani", "Cici"]
+
+// filter: ambil yang umurnya 20 ke atas
+pengguna.filter(p => p.umur >= 20)</pre>
+        <p>Ini bentuk data yang paling sering kamu temui di dunia nyata — hasil dari API hampir selalu array berisi object.</p>
+        <div class="output" id="out-11"></div>
+    </section>
+
+    <section>
+        <h2>12. Kapan pakai const vs let</h2>
+        <p><b>Pakai <code>const</code> sebagai default.</b> Ganti ke <code>let</code> hanya kalau nilainya memang perlu berubah. Ini bikin kode lebih aman — kalau tidak sengaja menimpa nilai, langsung error ketimbang bug diam-diam.</p>
+        <p><code>var</code>: cara lama sebelum ES6 (2015). Punya masalah scope &amp; hoisting yang aneh. <b>Jangan dipakai</b> di kode baru, tapi perlu tahu karena masih ada di kode lama.</p>
+    </section>
+
+    <script src="./highlight.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

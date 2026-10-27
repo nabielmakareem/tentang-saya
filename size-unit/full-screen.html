@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100vw × 100vh - Full Screen</title>
+    <style>
+        /* reset dulu: body default punya margin 8px,
+           kalau tidak di-reset akan muncul scrollbar karena
+           lebar jadi 100vw + 16px */
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+        }
+
+        /* 100vw = 100% lebar viewport (layar)
+           100vh = 100% tinggi viewport
+           display:flex + align/justify center -> teks persis di tengah */
+        .full{
+            width: 100vw;
+            height: 100vh;
+            background-color: lightblue;
+
+            display: flex;
+            align-items: center;      /* tengah vertikal */
+            justify-content: center;  /* tengah horizontal */
+
+            font-family: system-ui, sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="full">full</div>
+</body>
+</html>

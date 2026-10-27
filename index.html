@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>hello world</h1>
+
+    <section class="section-box">
+        <div class="box box-1"></div>
+        <div class="box box-2"></div>
+        <div class="box box-3"></div>
+        <div class="box box-4"></div>
+    </section>
+
+    <section class="section-hero">
+        <div class="bagian-kiri box">
+            <h2>bagian kiri</h2>
+        </div>
+        <div class="bagian-kanan box">
+            <h2>bagian kanan</h2>
+        </div>
+    </section>
+
+    <!-- belajar box model css -->
+    <section class="section-boxmodel">
+        <h2>Belajar Box Model</h2>
+        <p>Tiap elemen di CSS itu kotak, isinya 4 lapisan dari dalam ke luar: content, padding, border, margin.</p>
+
+        <!-- 1. content saja -->
+        <div class="bm-box bm-1">content</div>
+
+        <!-- 2. + padding (ruang dalam, background ikut melebar) -->
+        <div class="bm-box bm-2">padding</div>
+
+        <!-- 3. + border (garis tepi kotak) -->
+        <div class="bm-box bm-3">border</div>
+
+        <!-- 4. + margin (jarak dorong ke elemen lain) -->
+        <div class="bm-box bm-4">margin</div>
+
+        <h2>Box Sizing</h2>
+        <p>Dua kotak di bawah punya deklarasi yang SAMA: <code>width: 200px; padding: 20px; border: 5px solid;</code>.
+        Bedanya cuma <code>box-sizing</code>. Perhatikan lebar akhirnya.</p>
+
+        <div class="bs-row">
+            <!-- width 200px itu HANYA content -> total = 200+40+10 = 250px -->
+            <div class="bs-box bs-content">
+                <strong>content-box</strong>
+                <small>width = content saja<br>total = 250px</small>
+            </div>
+
+            <!-- width 200px itu TOTAL -> padding & border dimakan dari dalam -->
+            <div class="bs-box bs-border">
+                <strong>border-box</strong>
+                <small>width = total<br>content menyusut jadi 150px</small>
+            </div>
+        </div>
+
+        <p class="bs-note">
+            Rumusnya: <code>content-box</code> → lebar total = width + padding×2 + border×2.
+            <code>border-box</code> → lebar total tetap = width, padding & border dimakan dari dalam.
+        </p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* ============================================================
+   BELAJAR SIZE UNIT CSS
+   ============================================================ */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    color: #222;
+}
+
+code{
+    background-color: #e8e8e8;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.head{
+    max-width: 70ch;
+    margin-bottom: 2rem;
+}
+
+/* tiap blok demo */
+.demo{
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 70ch;
+}
+
+.demo h2{
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.demo h2 small{
+    font-weight: normal;
+    color: #888;
+    font-size: 0.75em;   /* em di sini = 0.75 * ukuran h2 */
+}
+
+.note{
+    background-color: #fff8e1;
+    border-left: 4px solid #f0b400;
+    padding: 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* ---------- 1. PX (absolute) ---------- */
+.px-box{
+    width: 100px;          /* tetap, tidak peduli apa pun */
+    height: 100px;
+    background-color: lightcoral;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* ---------- 2. REM (relative ke html) ---------- */
+.rem-parent{
+    font-size: 16px;
+    margin-bottom: 0.75rem;
+}
+
+.rem-parent.is-big{
+    font-size: 24px;       /* parent diperbesar */
+}
+
+.rem-box{
+    width: 2rem;           /* SELALU 32px, karena 1rem = 16px (root) */
+    height: 2rem;
+    background-color: lightgreen;
+    border: 1px solid #2e7d32;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.25rem;
+    overflow: hidden;
+}
+
+/* ---------- 3. EM (relative ke parent/elemen) ---------- */
+.em-parent{
+    font-size: 16px;
+    margin-bottom: 0.75rem;
+}
+
+.em-parent.is-big{
+    font-size: 24px;       /* parent diperbesar */
+}
+
+.em-box{
+    width: 2em;            /* ikut font-size parent: 16px -> 32px, 24px -> 48px */
+    height: 2em;
+    background-color: lightblue;
+    border: 1px solid #1565c0;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.25em;
+    overflow: hidden;
+}
+
+/* ---------- 4. PERSEN ---------- */
+.percent-parent{
+    width: 100%;
+    background-color: #eee;
+    padding: 1rem;
+    border: 1px dashed #aaa;
+}
+
+.percent-box{
+    width: 50%;            /* setengah dari parent */
+    background-color: plum;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* ---------- 5. VIEWPORT ---------- */
+.vw-box{
+    width: 10vw;           /* 10% lebar layar */
+    height: 10vh;          /* 10% tinggi layar */
+    background-color: khaki;
+    border: 1px solid #b8860b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* ---------- 6. TABEL RANGKUMAN ---------- */
+.tabel{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.tabel th,
+.tabel td{
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.tabel th{
+    background-color: #333;
+    color: white;
+}
+
+.tabel tbody tr:nth-child(even){
+    background-color: #f5f5f5;
+}
